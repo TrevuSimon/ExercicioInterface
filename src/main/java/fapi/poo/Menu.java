@@ -4,6 +4,7 @@ import fapi.poo.geometria.Circulo;
 import fapi.poo.geometria.Quadrado;
 import fapi.poo.operacoes.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -66,11 +67,17 @@ public class Menu {
             if(buffer != 0 && buffer != 1 && buffer != 2){
                 System.out.println("Escolha invalida!");
             }
-            System.out.print("Exercicios" +
+            System.out.println("Exercicios" +
                     "\n1 - geometria" +
                     "\n2 - operacao" +
                     "\n>");
-            buffer = scanner.nextInt();
+            try{
+                buffer = scanner.nextInt();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+                buffer = 5;
+
+            }
 
             if(buffer == 1){
                 menuGeometria();
